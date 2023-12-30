@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Farmer Supply Chain</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Farmer Supply Chain</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li class="active"><a href="/farmer">Add Farmer</a></li>
+        <li><a href="/distributor">Add Distributor</a></li>
+        <li><a href="/shop">Add Shop</a></li>
+        <li><a href="/asset">Add Asset</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<br/> 
+<div class="container">
+  <h2>Add Farmer</h2>
+  <p>Register Farmer through Ethereum Blockchain Network</p>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <form action="/farmerdata" method="post">
+        <div class="form-group">
+            <label>Enter Farmer Wallet Address:</label>
+            <input type="text" class="form-control" name="fwallet" required />
+        </div>
+
+        <div class="form-group">
+            <label>Enter Farmer Name:</label>
+            <input type="text" class="form-control" name="fname" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Farmer</button>
+    </form>
+    
+  </div>
+</div>
+<br/><br/>
+<div class="container">
+  <h2>Farmer Details</h2>
+  <p>Following were the Farmers on-boarded in Blockchain Network</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name of Farmer</th>
+        <th>Farmer Wallet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Add Dynamic Data Here -->
+      {%for i in range(num)%}
+        <tr>
+          <td>{{i+1}}</td>
+          <td>{{data[i][0]}}</td>
+          <td>{{data[i][1]}}</td>
+        </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  <center><p>Your address is <b id="add"></b></p></center>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</body>
+</html>
